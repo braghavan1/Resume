@@ -120,6 +120,52 @@
       margin-bottom: 1.4rem;
     }
 
+    .hero-pitch {
+      max-width: 720px;
+      margin: 0 auto 1.6rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.2);
+      border-left: 3px solid var(--teal);
+      border-radius: 10px;
+      padding: 1rem 1.4rem;
+      font-size: 1rem;
+      color: #e2f0ff;
+      line-height: 1.7;
+      font-style: italic;
+      position: relative;
+    }
+
+    .hero-pitch::before {
+      content: '\201C';
+      font-size: 3rem;
+      color: var(--teal);
+      line-height: 0;
+      vertical-align: -0.6rem;
+      margin-right: .2rem;
+      font-style: normal;
+    }
+
+    .hero-pitch::after {
+      content: '\201D';
+      font-size: 3rem;
+      color: var(--teal);
+      line-height: 0;
+      vertical-align: -0.6rem;
+      margin-left: .2rem;
+      font-style: normal;
+    }
+
+    .hero-pitch-label {
+      display: block;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .5rem;
+      font-style: normal;
+    }
+
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
@@ -589,6 +635,10 @@
     <div class="hero-avatar">BR</div>
     <h1>Balaji Raghavan</h1>
     <p class="hero-title">IT Platform Analyst &nbsp;|&nbsp; Enterprise Licensing &nbsp;|&nbsp; Cloud &amp; Microservices</p>
+    <p class="hero-pitch">
+      <span class="hero-pitch-label">Elevator Pitch</span>
+      I drive business analysis, solution design, enterprise integrations, licensing modernization, and release governance for Philips&rsquo; License Entitlement Management platform, enabling scalable entitlement and licensing capabilities across healthcare product portfolios.
+    </p>
     <div class="hero-meta">
       <span>&#128205; Bengaluru, India</span>
       <span>&#128222; +91 80560 40561</span>
@@ -730,13 +780,15 @@
             <span class="tl-period">Aug 2021 &ndash; Present</span>
           </div>
           <ul>
-            <li>Lead business and technical analysis for the License Entitlement Management (LEM) platform, supporting healthcare business units and enterprise licensing scenarios.</li>
-            <li>Translate commercial and non-commercial licensing requirements into solution designs spanning SAP/EMO, Apigee, ITaaP microservices, Kafka, Sentinel EMS/LDK and portal UIs.</li>
-            <li>Facilitate architecture reviews, requirement grooming, backlog refinement, release planning and stakeholder alignment across product, integration, security, support and vendor teams.</li>
-            <li>Contribute to release governance through compliance evidence, ITGC/BIA coordination, cutover planning, knowledge transfer and production-readiness activities.</li>
-            <li>Support migration and modernisation from legacy entitlement and license mechanisms to LDK-based capabilities.</li>
-            <li>Leveraged Microsoft Copilot, ChatGPT and AI-assisted tools to accelerate requirements analysis, API documentation, technical specifications and release readiness activities.</li>
-            <li>Applied prompt engineering techniques to generate architectural alternatives, integration workflows, business rules and automated documentation.</li>
+            <li>Lead business and technical analysis for licensing and entitlement management initiatives across healthcare product portfolios.</li>
+            <li>Gather, refine, and translate business requirements into scalable solution designs involving SAP/EMO, Apigee APIs, ITaaP microservices, Kafka, Sentinel EMS/LDK, and LEM Portal applications.</li>
+            <li>Drive commercial and non-commercial licensing workflows, including product upgrades, extensions, entitlement transformations, and feature management.</li>
+            <li>Coordinate end-to-end architecture discussions across enterprise systems, integration teams, product teams, security teams, and external vendors.</li>
+            <li>Facilitate requirement grooming, backlog refinement, design reviews, release planning, and stakeholder alignment activities.</li>
+            <li>Support modernization initiatives involving migration from legacy licensing technologies to Sentinel LDK-based entitlement and licensing platforms.</li>
+            <li>Contribute to release governance activities, including compliance reviews, ITGC/BIA coordination, cutover planning, production readiness assessments, and operational support.</li>
+            <li>Define and validate entitlement upgrade flows, business rules, orchestration logic, product mappings, and integration workflows for healthcare applications such as CVI, IGT, DXR, and HPM.</li>
+            <li>Leverage AI-assisted engineering tools, including Microsoft Copilot and Generative AI capabilities, to accelerate requirements analysis, solution design, technical documentation, stakeholder communications, and delivery productivity.</li>
           </ul>
           <div class="highlight-box">
             <div class="highlight-box-title">&#127919; Current Project &mdash; LEM 2026 Modernisation</div>
