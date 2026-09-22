@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balaji Raghavan — IT Platform Analyst</title>
+  <meta name="description" content="Balaji Raghavan — IT Platform Analyst with 18+ years in healthcare, enterprise licensing, cloud & microservices." />
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0f2444;
+      --blue:   #1a4b8c;
+      --accent: #2e87d4;
+      --teal:   #0d9488;
+      --light:  #f0f6ff;
+      --text:   #1e293b;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+      --white:  #ffffff;
+      --card:   #ffffff;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(15,36,68,.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    /* ── Nav ──────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 58px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.3);
+    }
+
+    .nav-brand {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: .5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #94b8d4;
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 500;
+      letter-spacing: .3px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    #hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1e6fa8 100%);
+      color: var(--white);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 auto 1.5rem;
+      border: 3px solid rgba(255,255,255,.25);
+      box-shadow: 0 0 40px rgba(46,135,212,.5);
+    }
+
+    #hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: .5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(.9rem, 2.5vw, 1.1rem);
+      color: #7ec8f5;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem;
+      font-size: .9rem;
+      color: #c5dff5;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+
+    .hero-cta {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .65rem 1.5rem;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: #1a6db8; transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.4);
+    }
+
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    .years-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 100px;
+      padding: .4rem 1.1rem;
+      font-size: .85rem;
+      color: #d4eeff;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── Layout ───────────────────────────────────────────── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    section:nth-child(even) { background: var(--white); }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin-top: .5rem;
+      font-size: .95rem;
+    }
+
+    /* ── Summary ──────────────────────────────────────────── */
+    .summary-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      border-left: 4px solid var(--accent);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* ── Skills Grid ──────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      border-top: 3px solid var(--accent);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .skill-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(15,36,68,.15); }
+
+    .skill-card-title {
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: .75rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .tag {
+      background: var(--light);
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 500;
+      padding: .25rem .65rem;
+      border-radius: 100px;
+      border: 1px solid #c5d9ef;
+    }
+
+    .tag.ai { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+
+    /* ── Timeline ─────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .tl-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem;
+      transition: transform .2s;
+    }
+
+    .tl-card:hover { transform: translateX(4px); }
+
+    .tl-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .5rem;
+      margin-bottom: .75rem;
+    }
+
+    .tl-role {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .tl-company {
+      font-size: .92rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .tl-period {
+      font-size: .8rem;
+      background: var(--light);
+      color: var(--muted);
+      padding: .25rem .75rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+
+    .tl-card ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .tl-card li {
+      padding-left: 1.1rem;
+      position: relative;
+      font-size: .92rem;
+      color: #374151;
+    }
+
+    .tl-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .highlight-box {
+      margin-top: 1.25rem;
+      background: linear-gradient(135deg, #eff8ff, #e0f2fe);
+      border: 1px solid #bae0fd;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .highlight-box-title {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--blue);
+      margin-bottom: .5rem;
+    }
+
+    .highlight-box ul { gap: .4rem; }
+
+    /* ── Projects ─────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      border-bottom: 3px solid var(--teal);
+      transition: transform .2s;
+    }
+
+    .project-card:hover { transform: translateY(-4px); }
+
+    .project-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--teal), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .4rem;
+    }
+
+    .project-card p {
+      font-size: .87rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Education ────────────────────────────────────────── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .edu-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .edu-card h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .edu-card p {
+      font-size: .83rem;
+      color: var(--muted);
+      margin-top: .2rem;
+    }
+
+    /* ── Contact ──────────────────────────────────────────── */
+    #contact {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+    }
+
+    #contact .section-header h2 { color: var(--white); }
+    #contact .section-label { color: #7ec8f5; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: background .2s;
+    }
+
+    .contact-card:hover { background: rgba(255,255,255,.14); }
+
+    .contact-card .icon { font-size: 1.8rem; margin-bottom: .5rem; }
+
+    .contact-card h4 {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7ec8f5;
+      margin-bottom: .3rem;
+    }
+
+    .contact-card p, .contact-card a {
+      font-size: .92rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .contact-card a:hover { text-decoration: underline; }
+
+    .lang-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .lang-chip {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 100px;
+      padding: .4rem 1.2rem;
+      font-size: .88rem;
+      color: #d4eeff;
+    }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      background: #040f1e;
+      color: #64748b;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .82rem;
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      #hero { padding: 4rem 1.5rem 3.5rem; }
+      section { padding: 3rem 0; }
+      .timeline { padding-left: 1.5rem; }
+    }
+
+    /* ── Scroll animations ────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Balaji Raghavan</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="years-badge">&#10022; 18+ Years of Enterprise Experience</div>
+    <div class="hero-avatar">BR</div>
+    <h1>Balaji Raghavan</h1>
+    <p class="hero-title">IT Platform Analyst &nbsp;|&nbsp; Enterprise Licensing &nbsp;|&nbsp; Cloud &amp; Microservices</p>
+    <div class="hero-meta">
+      <span>&#128205; Bengaluru, India</span>
+      <span>&#128222; +91 80560 40561</span>
+      <span>&#9993;&#65039; balaji.raghavan.mdu@gmail.com</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">&#128172; Get in Touch</a>
+      <a href="#experience" class="btn btn-outline">&#128196; View Experience</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">About</span>
+      <h2>Professional Summary</h2>
+    </div>
+    <div class="summary-card fade-up">
+      IT Platform Analyst with <strong>18+ years of experience</strong> across healthcare, software licensing and digital payments.
+      Specialises in translating business requirements into scalable enterprise solutions using
+      <strong>microservices, cloud platforms, event-driven integration and rules engines</strong>.
+      Experienced in licensing and entitlement management, SAP integration, Sentinel EMS/LDK, API management,
+      technical design reviews, release governance, AI-assisted engineering and cross-functional delivery.
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Capabilities</span>
+      <h2>Core Expertise</h2>
+      <p>Domain knowledge spanning architecture, licensing platforms, cloud, engineering and AI</p>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card fade-up">
+        <div class="skill-card-title">&#128279; Architecture &amp; Integration</div>
+        <div class="skill-tags">
+          <span class="tag">Microservices</span>
+          <span class="tag">SOA</span>
+          <span class="tag">Event-driven</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Apigee</span>
+          <span class="tag">OAuth 2.0</span>
+          <span class="tag">Webhooks</span>
+        </div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-card-title">&#128273; Licensing Platforms</div>
+        <div class="skill-tags">
+          <span class="tag">LEM</span>
+          <span class="tag">Sentinel EMS/LDK</span>
+          <span class="tag">FlexNet</span>
+          <span class="tag">Legacy Key Generators</span>
+          <span class="tag">Entitlement Lifecycle</span>
+        </div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-card-title">&#9925; Cloud &amp; DevOps</div>
+        <div class="skill-tags">
+          <span class="tag">AWS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Jenkins</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">RabbitMQ</span>
+        </div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-card-title">&#128187; Engineering</div>
+        <div class="skill-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Python</span>
+          <span class="tag">React</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">C++</span>
+          <span class="tag">Drools</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-card-title">&#128203; Delivery &amp; Governance</div>
+        <div class="skill-tags">
+          <span class="tag">Requirements Analysis</span>
+          <span class="tag">Solution Design</span>
+          <span class="tag">Backlog Refinement</span>
+          <span class="tag">Release Planning</span>
+          <span class="tag">ITGC/BIA</span>
+          <span class="tag">Security Alignment</span>
+        </div>
+      </div>
+
+      <div class="skill-card fade-up">
+        <div class="skill-card-title">&#129302; AI &amp; Data</div>
+        <div class="skill-tags">
+          <span class="tag ai">GitHub Copilot</span>
+          <span class="tag ai">Microsoft Copilot</span>
+          <span class="tag ai">ChatGPT / GPT Models</span>
+          <span class="tag ai">Prompt Engineering</span>
+          <span class="tag ai">LangChain</span>
+          <span class="tag ai">Vertex AI</span>
+          <span class="tag ai">RAG</span>
+          <span class="tag ai">Deep Learning</span>
+          <span class="tag ai">Intelligent Automation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Career</span>
+      <h2>Professional Experience</h2>
+      <p>18+ years across healthcare, licensing, payments and product engineering</p>
+    </div>
+    <div class="timeline">
+
+      <!-- Philips -->
+      <div class="tl-item fade-up">
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">IT Platform Analyst</div>
+              <div class="tl-company">Philips Private Limited &mdash; Bengaluru, India</div>
+            </div>
+            <span class="tl-period">Aug 2021 &ndash; Present</span>
+          </div>
+          <ul>
+            <li>Lead business and technical analysis for the License Entitlement Management (LEM) platform, supporting healthcare business units and enterprise licensing scenarios.</li>
+            <li>Translate commercial and non-commercial licensing requirements into solution designs spanning SAP/EMO, Apigee, ITaaP microservices, Kafka, Sentinel EMS/LDK and portal UIs.</li>
+            <li>Facilitate architecture reviews, requirement grooming, backlog refinement, release planning and stakeholder alignment across product, integration, security, support and vendor teams.</li>
+            <li>Contribute to release governance through compliance evidence, ITGC/BIA coordination, cutover planning, knowledge transfer and production-readiness activities.</li>
+            <li>Support migration and modernisation from legacy entitlement and license mechanisms to LDK-based capabilities.</li>
+            <li>Leveraged Microsoft Copilot, ChatGPT and AI-assisted tools to accelerate requirements analysis, API documentation, technical specifications and release readiness activities.</li>
+            <li>Applied prompt engineering techniques to generate architectural alternatives, integration workflows, business rules and automated documentation.</li>
+          </ul>
+          <div class="highlight-box">
+            <div class="highlight-box-title">&#127919; Current Project &mdash; LEM 2026 Modernisation</div>
+            <ul>
+              <li>CVI commercial upgrade &amp; extension: entitlement upgrade flows from SAP, validation, orchestration and Sentinel updates.</li>
+              <li>Non-commercial upgrade portal: UI-driven upgrade for CVI, HPM, bulk processing and multi-country handling.</li>
+              <li>Legacy-to-LDK migration: transition of IGT and DXR imaging portfolio entitlements to LDK models.</li>
+              <li>End-to-end architecture across LEM Portal, Apigee, ITaaP microservices, Kafka, rules processing and Sentinel EMS/LDK.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flexera -->
+      <div class="tl-item fade-up">
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Senior Member Technical Staff</div>
+              <div class="tl-company">Flexera Technologies &mdash; Bengaluru, India</div>
+            </div>
+            <span class="tl-period">Oct 2017 &ndash; May 2021</span>
+          </div>
+          <ul>
+            <li>Developed microservices and full-stack capabilities using Spring Boot, RabbitMQ, Docker and Next.js for enterprise licensing solutions.</li>
+            <li>Integrated licensing front-end and back-end services, supported software monetisation use cases and implemented OAuth-secured Swagger/API interfaces.</li>
+            <li>Migrated applications from IBM WebSphere to Liberty and contributed to automated testing and sprint delivery.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PayPal -->
+      <div class="tl-item fade-up">
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Senior Member Technical Staff</div>
+              <div class="tl-company">PayPal &mdash; Chennai, India</div>
+            </div>
+            <span class="tl-period">Jan 2012 &ndash; Sep 2017</span>
+          </div>
+          <ul>
+            <li>Delivered full-stack enhancements and vulnerability remediation for payment-domain applications serving multiple business teams.</li>
+            <li>Built unit and integration tests using JUnit and Mockito, and supported sprint planning and engineering delivery.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PTC -->
+      <div class="tl-item fade-up">
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Software Engineer II</div>
+              <div class="tl-company">Parametric Technology Corporation (PTC) &mdash; Pune, India</div>
+            </div>
+            <span class="tl-period">May 2007 &ndash; Oct 2010</span>
+          </div>
+          <ul>
+            <li>Developed and tested E-CAD software using C++, Qt and SOAP-based web services.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Amdocs -->
+      <div class="tl-item fade-up">
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Subject Matter Expert</div>
+              <div class="tl-company">Amdocs &mdash; Pune, India</div>
+            </div>
+            <span class="tl-period">May 2006 &ndash; Mar 2007</span>
+          </div>
+          <ul>
+            <li>Developed telecom applications using PowerBuilder and supported domain-focused technical delivery.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Achievements</span>
+      <h2>Selected Projects</h2>
+      <p>Key initiatives delivered at Philips</p>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card fade-up">
+        <div class="project-icon">&#128273;</div>
+        <h3>LEM Platform</h3>
+        <p>Enterprise licensing and entitlement management integrating business entitlement decisions with technical licence generation and enforcement.</p>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-icon">&#128295;</div>
+        <h3>Legacy Key Generator Architecture</h3>
+        <p>Consolidation approach for third-party encryptors supporting medical-device licensing use cases across multiple imaging portfolios.</p>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-icon">&#8593;&#65039;</div>
+        <h3>Commercial &amp; Non-Commercial Upgrades</h3>
+        <p>Upgrade, extension, bulk feature update and entitlement lifecycle capabilities across healthcare product portfolios including CVI, HPM and imaging.</p>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-icon">&#9889;</div>
+        <h3>Event-Driven Licensing Integration</h3>
+        <p>Reusable APIs and microservices supporting create, update and upgrade flows with SAP/EMO integration, Kafka messaging and OAuth-secured APIs.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Qualifications</span>
+      <h2>Education &amp; Certifications</h2>
+    </div>
+    <div class="edu-grid">
+
+      <div class="edu-card fade-up">
+        <div class="edu-icon">&#127891;</div>
+        <div>
+          <h3>Bachelor of Engineering (BE)</h3>
+          <p>Bharathiar University &bull; 2000 &ndash; 2004</p>
+        </div>
+      </div>
+
+      <div class="edu-card fade-up">
+        <div class="edu-icon">&#129302;</div>
+        <div>
+          <h3>Deep Learning in AI-driven Solutions</h3>
+          <p>Indian Institute of Science (IISc), Bengaluru</p>
+        </div>
+      </div>
+
+      <div class="edu-card fade-up">
+        <div class="edu-icon">&#9925;</div>
+        <div>
+          <h3>AWS Solution Architect</h3>
+          <p>Certification Programme</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">Connect</span>
+      <h2>Get in Touch</h2>
+    </div>
+    <div class="contact-grid">
+
+      <div class="contact-card fade-up">
+        <div class="icon">&#128205;</div>
+        <h4>Location</h4>
+        <p>Bengaluru, India</p>
+      </div>
+
+      <div class="contact-card fade-up">
+        <div class="icon">&#128222;</div>
+        <h4>Phone</h4>
+        <a href="tel:+918056040561">+91 80560 40561</a>
+      </div>
+
+      <div class="contact-card fade-up">
+        <div class="icon">&#9993;&#65039;</div>
+        <h4>Email</h4>
+        <a href="mailto:balaji.raghavan.mdu@gmail.com">balaji.raghavan.mdu@gmail.com</a>
+      </div>
+
+    </div>
+
+    <div class="lang-row fade-up">
+      <span class="lang-chip">&#127881; Tamil &mdash; Native</span>
+      <span class="lang-chip">&#127468;&#127463; English &mdash; Proficient</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Balaji Raghavan &mdash; IT Platform Analyst &bull; Bengaluru, India
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
