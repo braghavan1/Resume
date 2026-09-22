@@ -496,6 +496,67 @@
       line-height: 1.6;
     }
 
+    /* ── GIF hover modal ──────────────────────────────────── */
+    #gif-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5,15,35,.75);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    #gif-modal.active { display: flex; }
+
+    #gif-modal-inner {
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 16px;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 24px 72px rgba(0,0,0,.7);
+      width: min(96vw, 960px);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    #gif-modal-title {
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    .gif-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+
+    .gif-item:last-child { margin-bottom: 0; }
+
+    .gif-item img {
+      width: 100%;
+      min-height: 320px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #0a1a30;
+    }
+
+    .gif-item span {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #c5dff5;
+      text-align: center;
+    }
+
     /* ── Education ────────────────────────────────────────── */
     .edu-grid {
       display: grid;
@@ -900,9 +961,9 @@
         <p>Upgrade, extension, bulk feature update and entitlement lifecycle capabilities across healthcare product portfolios including CVI, HPM and imaging.</p>
       </div>
 
-      <div class="project-card fade-up">
+      <div class="project-card fade-up" id="card-event-driven" style="cursor:pointer;">
         <div class="project-icon">&#9889;</div>
-        <h3>Event-Driven Licensing Integration</h3>
+        <h3>Event-Driven Licensing Integration <small style="font-size:.7rem;color:var(--teal);font-weight:400;">&nbsp;<i class="fa-regular fa-eye"></i> hover to preview</small></h3>
         <p>Reusable APIs and microservices supporting create, update and upgrade flows with SAP/EMO integration, Kafka messaging and OAuth-secured APIs.</p>
       </div>
 
@@ -1031,6 +1092,20 @@
   </a>
 </footer>
 
+<div id="gif-modal">
+  <div id="gif-modal-inner">
+    <div id="gif-modal-title"><i class="fa-solid fa-film"></i>&nbsp; LEM EventDriven Architecture</div>
+    <div class="gif-item">
+      <img src="https://raw.githubusercontent.com/braghavan1/Resume/main/Attachment/LEM/LEM_Event_Driven_Architecture_Animated-LEM%20Event-Driven%20Architecture.gif" alt="LifeCycle of the EventDriven flow" loading="lazy" />
+      <span>LifeCycle of the EventDriven flow</span>
+    </div>
+    <div class="gif-item">
+      <img src="https://raw.githubusercontent.com/braghavan1/Resume/main/Attachment/LEM/LEM_Event_Driven_Architecture_Animated-Event%20Lifecycle%20%26%20Failure%20Handling.gif" alt="Event Lifecycle &amp; Failure Handling" loading="lazy" />
+      <span>Event Lifecycle &amp; Failure Handling</span>
+    </div>
+  </div>
+</div>
+
 <script>
   // Intersection Observer for scroll animations
   const observer = new IntersectionObserver(
@@ -1038,6 +1113,20 @@
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // GIF hover modal — body-level so transform parents don't trap it
+  const gifCard  = document.getElementById('card-event-driven');
+  const gifModal = document.getElementById('gif-modal');
+  let hideTimer;
+
+  const showModal = () => { clearTimeout(hideTimer); gifModal.classList.add('active'); };
+  const hideModal = () => { hideTimer = setTimeout(() => gifModal.classList.remove('active'), 150); };
+
+  gifCard.addEventListener('mouseenter', showModal);
+  gifCard.addEventListener('mouseleave', hideModal);
+  gifModal.addEventListener('mouseenter', showModal);
+  gifModal.addEventListener('mouseleave', hideModal);
+  gifModal.addEventListener('click', () => gifModal.classList.remove('active'));
 </script>
 </body>
 </html>
